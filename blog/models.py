@@ -1,4 +1,5 @@
 from django.db import models #importing models
+from django.urls import reverse # added by sl
 
 # Create your models here.
 class Post(models.Model): #creating submodels
@@ -12,3 +13,5 @@ class Post(models.Model): #creating submodels
 	def __str__(self):
 		return self.title
 
+	def get_absolute_url(self): #new
+		return reverse('post_detail', args=[str(self.id)])
