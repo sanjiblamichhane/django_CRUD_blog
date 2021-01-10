@@ -1,5 +1,6 @@
 from django.views.generic import ListView, DetailView #new
-from django.views.generic.edit import CreateView, UpdateView  #added by sl
+from django.views.generic.edit import CreateView, UpdateView, DeleteView  #added by sl
+from django.urls import reverse_lazy
 
 #import Post from models
 from .models import Post
@@ -25,3 +26,7 @@ class BlogUpdateView(UpdateView): #new
 	template_name = 'post_edit.html'
 	fields = ['title', 'body'] # we're assuming the author is not changing
 
+class BlogDeleteView(DeleteView):
+	model = Post #database model
+	template_name = 'post_delete.html'
+	success_url = reverse_lazy('home') # we used reverse_lazy() as opposed to reverse() becasuse it wont execute the url redirect until out view has finished deleteting the blog post.
