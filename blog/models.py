@@ -2,7 +2,8 @@ from django.db import models #importing models
 from django.urls import reverse # added by sl
 
 # Create your models here.
-class Post(models.Model): #creating submodels
+#creating submodels
+class Post(models.Model): 
 	title = models.CharField(max_length = 200) #limiting the character of the title to be 200
 	author = models.ForeignKey( # we're using ForeignKey because it allows for many-to-one relationship --> i.e 
 		'auth.User',

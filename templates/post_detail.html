@@ -2,8 +2,9 @@
 {% extends 'base.html' %}
 
 {% block content %}
-	<div class='post-entry'>
+	<div class="post-entry">
 		<h2>{{ object.title }}</h2>
 		<p>{{ object.body }}</p>
 	</div>
+	<a href="{% url 'post_edit' indiv_post.pk %}"> + Edit Blog Post </a>
 {% endblock content %}
