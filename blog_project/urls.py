@@ -16,7 +16,11 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include #importing path and include methods from django's built-in urls class
 
+
+#order of the urls matter here
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('admin/', admin.site.urls), #admin entry
+    path('accounts/', include('django.contrib.auth.urls')), #auth added
+    path('accounts/', include('accounts.urls')), # new 
 	path('', include('blog.urls')), #added by sl --> adding empty '' means that we're indicating that the URL requests should be redirected as to blog's URLs for further instructions. 
 ]
